@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Select from "./Select";
+import "./App.css";
 
-function App() {
+import Crud from "./Crud";
+import Tsearch from "./Tsearch";
+
+import Ant from "./Ant";
+import Boot from "./Boot";
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Select />
+        <Routes>
+          <Route path="/Ant" element={<Ant />} />
+          <Route path="/Boot" element={<Boot />} />
+          <Route path="/crud" element={<Crud />} />
+          <Route path="/Tsearch" element={<Tsearch />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
